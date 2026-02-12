@@ -2,7 +2,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
-  devServer: { port: 4201 },
+  devServer: { 
+    port: 4201,
+    historyApiFallback: true,
+  },
   output: { clean: true },
   resolve: {
     extensions: [".js", ".jsx"],

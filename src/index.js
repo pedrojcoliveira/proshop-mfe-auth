@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import { AuthProvider } from "./contexts/AuthContext";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 import "./assets/styles/bootstrap.custom.css";
 import "./assets/styles/index.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/" element={<LoginScreen />} />
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/register" element={<RegisterScreen />} />
+          <Route path="/profile" element={<ProfileScreen />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
