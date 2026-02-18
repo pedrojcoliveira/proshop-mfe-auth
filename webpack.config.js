@@ -6,9 +6,7 @@ module.exports = {
   devServer: { 
     port: 4201,
     historyApiFallback: true,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-    },
+    headers: { "Access-Control-Allow-Origin": "*" },
   },
   output: { 
     publicPath: "http://localhost:4201/",
@@ -36,6 +34,10 @@ module.exports = {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        type: "asset/resource",
+      },
     ],
   },
   plugins: [
@@ -46,12 +48,13 @@ module.exports = {
         "./LoginScreen": "./src/screens/LoginScreen.jsx",
         "./RegisterScreen": "./src/screens/RegisterScreen.jsx",
         "./ProfileScreen": "./src/screens/ProfileScreen.jsx",
-        "./AuthProvider": "./src/contexts/AuthContext.jsx",
       },
       shared: {
-        react: { singleton: true, requiredVersion: false, eager: false },
-        "react-dom": { singleton: true, requiredVersion: false, eager: false },
-        "react-router-dom": { singleton: true, requiredVersion: false, eager: false },
+        react: { singleton: true, requiredVersion: false },
+        "react-dom": { singleton: true, requiredVersion: false },
+        "react-router-dom": { singleton: true, requiredVersion: false },
+        "react-redux": { singleton: true, requiredVersion: false },
+        "@reduxjs/toolkit": { singleton: true, requiredVersion: false },
       },
     }),
     new HtmlWebpackPlugin({
