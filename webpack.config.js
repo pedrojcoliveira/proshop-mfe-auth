@@ -45,9 +45,9 @@ module.exports = {
       name: "mfeAuth",
       filename: "remoteEntry.js",
       exposes: {
-        "./LoginScreen": "./src/screens/LoginScreen.jsx",
-        "./RegisterScreen": "./src/screens/RegisterScreen.jsx",
-        "./ProfileScreen": "./src/screens/ProfileScreen.jsx",
+        "./LoginScreen": "./src/remote/LoginScreenRemote.jsx",
+        "./RegisterScreen": "./src/remote/RegisterScreenRemote.jsx",
+        "./ProfileScreen": "./src/remote/ProfileScreenRemote.jsx",
       },
       shared: {
         react: { singleton: true, requiredVersion: false },
