@@ -24,10 +24,12 @@ const ProfileScreen = () => {
   const [updateProfile, { isLoading: loadingUpdateProfile }] =
     useProfileMutation();
 
-  useEffect(() => {
+useEffect(() => {
+  if (userInfo) {
     setName(userInfo.name);
     setEmail(userInfo.email);
-  }, [userInfo.email, userInfo.name]);
+  }
+}, [userInfo]);
 
   const dispatch = useDispatch();
   const submitHandler = async (e) => {
