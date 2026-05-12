@@ -41,7 +41,7 @@ const RegisterScreen = () => {
       try {
         const res = await register({ name, email, password }).unwrap();
         dispatch(setCredentials({ ...res }));
-        window.dispatchEvent(new Event('storage'));
+        window.dispatchEvent(new CustomEvent('userChanged', { detail: { userInfo: res } }));
         navigate(redirect);
       } catch (err) {
         toast.error(err?.data?.message || err.error);
@@ -102,7 +102,7 @@ const RegisterScreen = () => {
       <Row className='py-3'>
         <Col>
           Already have an account?{' '}
-          <Link to={redirect ? `/user/login?redirect=${redirect}` : '/user/login'}>
+          <Link to={redirect ? `../login?redirect=${redirect}` : '../login'}>
             Login
           </Link>
         </Col>

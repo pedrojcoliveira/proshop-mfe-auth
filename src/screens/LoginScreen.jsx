@@ -35,7 +35,7 @@ const LoginScreen = () => {
     try {
       const res = await login({ email, password }).unwrap();
       dispatch(setCredentials({ ...res }));
-      window.dispatchEvent(new Event('storage'));
+      window.dispatchEvent(new CustomEvent('userChanged', { detail: { userInfo: res } }));
       navigate(redirect);
     } catch (err) {
       toast.error(err?.data?.message || err.error);
@@ -77,7 +77,7 @@ const LoginScreen = () => {
       <Row className='py-3'>
         <Col>
           New Customer?{' '}
-          <Link to={redirect ? `/user/register?redirect=${redirect}` : '/user/register'}>
+          <Link to={redirect ? `../register?redirect=${redirect}` : '../register'}>
             Register
           </Link>
         </Col>
