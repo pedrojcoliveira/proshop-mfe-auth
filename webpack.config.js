@@ -46,6 +46,8 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         "./UserManagementApp": "./src/UserManagementApp",
+        "./UserMenu": "./src/components/UserMenu.jsx",
+        "./AuthService": "./src/store/authService.js",
       },
       shared: {
         react: { singleton: true, requiredVersion: false },
