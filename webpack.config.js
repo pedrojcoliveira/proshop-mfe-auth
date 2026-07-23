@@ -3,7 +3,8 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 
 module.exports = {
   entry: "./src/index.js",
-  devServer: { 
+  performance: { hints: false },
+  devServer: {
     port: 4201,
     historyApiFallback: true,
     headers: { "Access-Control-Allow-Origin": "*" },
